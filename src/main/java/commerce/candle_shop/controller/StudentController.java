@@ -2,6 +2,7 @@ package commerce.candle_shop.controller;
 
 
 
+import commerce.candle_shop.model.customer.Customer;
 import generated.StudentSchema;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,8 @@ public class StudentController {
     @GetMapping("/student")
     public ResponseEntity<StudentSchema> retriveStudent(){
         StudentSchema a = new StudentSchema().withAge(10.0).withCourse("asd").withName("bbb");
+
+
         return ResponseEntity.ok(a);
     }
 }
