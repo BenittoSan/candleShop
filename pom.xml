@@ -8,10 +8,10 @@
 		<version>3.3.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>demo-jasonchema2pojo</groupId>
-	<artifactId>jasonschema2pojo</artifactId>
+	<groupId>commerce</groupId>
+	<artifactId>candle-shop</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>jasonschema2pojo</name>
+	<name>candle-shop</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>

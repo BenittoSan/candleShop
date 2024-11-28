@@ -1,4 +1,4 @@
-package demo_jasonchema2pojo.jasonschema2pojo;
+package commerce.candle_shop;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

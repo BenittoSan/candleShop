@@ -1,4 +1,4 @@
-package demo_jasonchema2pojo.jasonschema2pojo.controller;
+package commerce.candle_shop.controller;
 
 
 
@@ -13,6 +13,6 @@ public class StudentController {
     @GetMapping("/student")
     public ResponseEntity<StudentSchema> retriveStudent(){
         StudentSchema a = new StudentSchema().withAge(10.0).withCourse("asd").withName("bbb");
-        return ResponseEntity.ok(new StudentSchema());
+        return ResponseEntity.ok(a);
     }
 }

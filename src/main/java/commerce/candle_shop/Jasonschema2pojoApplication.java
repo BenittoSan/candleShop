@@ -1,4 +1,4 @@
-package demo_jasonchema2pojo.jasonschema2pojo;
+package commerce.candle_shop;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
