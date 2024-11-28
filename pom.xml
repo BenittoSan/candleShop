@@ -56,6 +56,15 @@
 			<artifactId>jsonschema2pojo-core</artifactId>
 			<version>1.2.2</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -96,7 +105,7 @@
 				<artifactId>jsonschema2pojo-maven-plugin</artifactId>
 				<version>1.2.2</version>
 				<configuration>
-					<sourceDirectory>${project.basedir}/src/main/resources/json</sourceDirectory>
+					<sourceDirectory>${project.basedir}/src/main/resources/jsonSchema</sourceDirectory>
 					<outputDirectory>${project.build.directory}/generated-sources/java</outputDirectory>
 					<targetPackage>generated</targetPackage>
 					<sourceType>jsonschema</sourceType>
