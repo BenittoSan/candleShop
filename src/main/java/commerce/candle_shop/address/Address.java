@@ -1,6 +1,6 @@
-package commerce.candle_shop.model.address;
+package commerce.candle_shop.address;
 
-import commerce.candle_shop.model.customer.Customer;
+import commerce.candle_shop.customer.Customer;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,7 +20,7 @@ public class Address {
     private long id;
 
     private String street;
-    private String houseNumber;
+    private int houseNumber;
     private String city;
     private String zipCode;
     private String country;

@@ -1,6 +1,6 @@
-package commerce.candle_shop.model.customer;
+package commerce.candle_shop.customer;
 
-import commerce.candle_shop.model.address.Address;
+import commerce.candle_shop.address.Address;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,6 +10,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.Email;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
@@ -21,7 +22,7 @@ public class Customer {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    private int id;
+    private long id;
 
     private String name;
 
@@ -33,6 +34,6 @@ public class Customer {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate birthday;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-    private List<Address> addresses;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "customer")
+    private List<Address> addresses = new ArrayList<>();
 }
