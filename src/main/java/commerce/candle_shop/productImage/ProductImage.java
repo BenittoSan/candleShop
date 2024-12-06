@@ -1,9 +1,7 @@
 package commerce.candle_shop.productImage;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import commerce.candle_shop.productInventory.ProductInventory;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,4 +19,8 @@ public class ProductImage {
     private long id;
     //private Blob image;
     //private imageOrder
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "productInventory_id")
+    private ProductInventory productInventory;
 }

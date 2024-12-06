@@ -1,13 +1,13 @@
 package commerce.candle_shop.productCategory;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import commerce.candle_shop.productInventory.ProductInventory;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -22,4 +22,7 @@ public class ProductCategory {
 
     private String categoryName;
 
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
+    private List<ProductInventory> productInventories;
 }

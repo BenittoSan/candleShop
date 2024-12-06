@@ -1,9 +1,7 @@
 package commerce.candle_shop.purchase;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import commerce.candle_shop.customer.Customer;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,4 +21,8 @@ public class Purchase {
     private long id;
 
     private LocalDateTime purchaseDate;
+
+    @ManyToOne()
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 }

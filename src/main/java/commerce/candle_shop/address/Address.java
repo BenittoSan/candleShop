@@ -26,6 +26,6 @@ public class Address {
     private String country;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "customer_Id", nullable = false)
+    @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 }
