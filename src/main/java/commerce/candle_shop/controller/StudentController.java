@@ -18,4 +18,9 @@ public class StudentController {
 
         return ResponseEntity.ok(a);
     }
+//    @GetMapping("customer")
+//    public ResponseEntity<Customer> retriveCustomer(){
+//        //Customer c = new Customer(1,"name","lastname","cos@wp.pl", LocalDate.now());
+//        return ResponseEntity.ok(c);
+//    }
 }
