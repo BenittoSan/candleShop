@@ -1,15 +1,11 @@
 package commerce.candle_shop.customer;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import generated.CustomerSchema;
 
 import java.util.List;
-import java.util.Optional;
 
-@Repository
-public interface ICustomerRepository extends JpaRepository<Customer, Long> {
+public interface ICustomerRepository {
 
-     List<Customer> findCustomersById(long id);
-     Optional<Customer> findCustomerById(long id);
-
+    List<Customer> findCustomerByName(String name);
+    Customer insertCustomer(CustomerSchema customerSchema);
 }

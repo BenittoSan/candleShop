@@ -1,11 +1,14 @@
 package commerce.candle_shop.customer;
 
-import org.springframework.stereotype.Component;
+import generated.CustomerSchema;
 
-@Component
+
+
 public interface ICustomerService {
 
-    Customer createCustomer(Customer customer);
+    Customer insertCustomer(CustomerSchema customerSchema);
 
-
+//    Optional<Customer> retriveCustomer(long id);
+//
+//    List<Customer> retriveCustomersByName(String name);
 }

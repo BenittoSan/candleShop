@@ -28,7 +28,7 @@ public class ProductInventory {
     private int quantity;
     private double price;
     private double weight;
-
+    private int burnDuration;
 
     @ManyToOne
     private ProductCategory category;

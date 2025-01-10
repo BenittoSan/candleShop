@@ -2,7 +2,6 @@ package commerce.candle_shop.controller;
 
 
 
-import commerce.candle_shop.model.customer.Customer;
 import generated.StudentSchema;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
