@@ -11,7 +11,6 @@ import jakarta.persistence.criteria.Root;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.stereotype.Repository;
 
@@ -45,7 +44,7 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
     public Customer insertCustomer(CustomerSchema customerSchema) {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<Customer> cq = cb.createQuery(Customer.class);
-        Root<Customer> root = cq.from(Customer.class);
+        //Root<Customer> root = cq.from(Customer.class);
 
         Customer customer = new Customer();
         customer.setName(customerSchema.getName());

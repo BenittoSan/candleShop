@@ -4,6 +4,7 @@ import commerce.candle_shop.productAvailability.ProductAvailability;
 import commerce.candle_shop.productCategory.ProductCategory;
 import commerce.candle_shop.productImage.ProductImage;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,6 +35,7 @@ public class ProductInventory {
     private ProductCategory category;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "productInventory")
+    @Size(min = 1, max = 5, message = "Product need at least one image") // To delete <-
     private List<ProductImage> productImages = new ArrayList<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "productInventory")

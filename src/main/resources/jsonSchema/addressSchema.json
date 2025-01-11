@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AddressSchema",
+  "type": "object",
+  "properties": {
+    "street": {
+      "type": "string"
+    },
+    "houseNumber": {
+      "type": "integer"
+    },
+    "city": {
+      "type": "string"
+    },
+    "zipCode": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "customerId": {
+      "type": "integer"
+    }
+  },
+  "required": ["street", "houseNumber", "city", "zipCode","country","customerId"]
+}
