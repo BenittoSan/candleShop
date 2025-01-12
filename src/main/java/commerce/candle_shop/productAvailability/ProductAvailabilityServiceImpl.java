@@ -3,8 +3,11 @@ package commerce.candle_shop.productAvailability;
 import commerce.candle_shop.exceptions.ProductInventoryNotExistException;
 import commerce.candle_shop.productInventory.ProductInventory;
 import generated.InserProductAvailabilitySchema;
+import generated.SelectProductAvailabilityAndInventorySchema;
 import jakarta.persistence.EntityManager;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ProductAvailabilityServiceImpl implements IProductAvailabilityService {
@@ -43,5 +46,10 @@ public class ProductAvailabilityServiceImpl implements IProductAvailabilityServi
         productAvailabilityRepository.save(productAvailability);
 
         return insertProductAvailability;
+    }
+
+    @Override
+    public List<SelectProductAvailabilityAndInventorySchema> retrieveProductAvailability() {
+        return productAvailabilityRepository.finProductAvailabilityInfo();
     }
 }

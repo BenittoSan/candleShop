@@ -3,10 +3,14 @@ package commerce.candle_shop.productAvailability;
 import commerce.candle_shop.exceptions.ErrorResponse;
 import commerce.candle_shop.exceptions.ProductInventoryNotExistException;
 import generated.InserProductAvailabilitySchema;
+import generated.SelectProductAvailabilityAndInventorySchema;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/product-availability")
 public class ProductAvailabilityController {
@@ -30,12 +34,21 @@ public class ProductAvailabilityController {
     public ResponseEntity<ErrorResponse> handleProductInventoryNotExistException(ProductInventoryNotExistException e){
 
         ErrorResponse errorResponse = new ErrorResponse(
-                HttpStatus.BAD_REQUEST.value(),
+                HttpStatus.NOT_FOUND.value(),
                 e.getMessage(),
                 "Product Inventory Not Exist."
         );
 
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
+
+    }
+
+    @GetMapping("/select")
+    public ResponseEntity<List<SelectProductAvailabilityAndInventorySchema>> selectProductAvailability(){
+
+        List<SelectProductAvailabilityAndInventorySchema> response = productAvailabilityService.retrieveProductAvailability();
+
+        return ResponseEntity.status(HttpStatus.OK).body(response);
 
     }
 
