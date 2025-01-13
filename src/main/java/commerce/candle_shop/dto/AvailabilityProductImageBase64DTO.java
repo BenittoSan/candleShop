@@ -18,7 +18,7 @@ public class AvailabilityProductImageBase64DTO {
     private int quantity;
     private String description;
     private long productInventoryId;
-    private long productAvailabilityID;
+    private long productAvailabilityId;
     private double weight;
     private int burnDuration;
     private String image;

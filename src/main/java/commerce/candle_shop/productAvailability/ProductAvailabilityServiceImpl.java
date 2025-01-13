@@ -10,10 +10,8 @@ import jakarta.persistence.EntityManager;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class ProductAvailabilityServiceImpl implements IProductAvailabilityService {
@@ -72,7 +70,13 @@ public class ProductAvailabilityServiceImpl implements IProductAvailabilityServi
         List<AvailabilityProductImageBase64DTO> productImageBase64List =
                 productImageByte.stream()
                         .map(product ->{
-                            String imageBase64 = Base64.getEncoder().encodeToString(product.getImage());
+
+                            String imageBase64 = null;
+
+                            if(product.getImage() != null)
+                                 imageBase64 = Base64.getEncoder().encodeToString(product.getImage());
+                            else
+                                imageBase64 = "";
 
                             return new AvailabilityProductImageBase64DTO(
                                     product.getProductName(),

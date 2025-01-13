@@ -5,7 +5,7 @@
   "properties": {
 
     "price": {
-      "type": "integer"
+      "type": "number"
     },
     "productInventoryId": {
       "type": "integer"
