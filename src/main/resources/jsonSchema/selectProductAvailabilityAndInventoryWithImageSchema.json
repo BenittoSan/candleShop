@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SelectProductAvailabilityAndInventorySchema",
+  "type": "object",
+  "properties": {
+    "productName": {
+      "type": "string"
+    },
+    "price": {
+      "type": "number"
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "description": {
+      "type": "string"
+    },
+    "productInventoryId": {
+      "type": "integer"
+    },
+    "productAvailabilityId": {
+      "type": "integer"
+    },
+    "weight": {
+      "type": "number"
+    },
+    "burnDuration":{
+      "type": "integer"
+    },
+    "image": {
+      "type": "array",
+        "items": {
+          "type": "integer"
+      }
+    }
+  },
+  "required": ["productName","price","quantity","description", "productInventoryId","productAvailabilityId","weight","burnDuration"]
+}

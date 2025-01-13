@@ -1,15 +1,19 @@
 package commerce.candle_shop.productAvailability;
 
+import commerce.candle_shop.dto.AvailabilityProductImageBase64DTO;
+import commerce.candle_shop.dto.AvailabilityProductImageByteDTO;
 import commerce.candle_shop.exceptions.ProductInventoryNotExistException;
 import commerce.candle_shop.productInventory.ProductInventory;
 import generated.InserProductAvailabilitySchema;
 import generated.SelectProductAvailabilityAndInventorySchema;
 import jakarta.persistence.EntityManager;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ProductAvailabilityServiceImpl implements IProductAvailabilityService {
@@ -53,6 +57,40 @@ public class ProductAvailabilityServiceImpl implements IProductAvailabilityServi
     @Override
     public List<SelectProductAvailabilityAndInventorySchema> retrieveProductAvailability(int page, int size) {
         PageRequest pageRequest = PageRequest.of(page, size);
-        return productAvailabilityRepository.finProductAvailabilityInfo(pageRequest);
+        return productAvailabilityRepository.findProductAvailabilityInfo(pageRequest);
     }
+
+    @Override
+    public List<AvailabilityProductImageBase64DTO> retriveAvailabilityProductImages(int page, int size) {
+
+        PageRequest pageRequest = PageRequest.of(page, size);
+
+        List<AvailabilityProductImageByteDTO> productImageByte =
+                productAvailabilityRepository.retriveAvailabilityProductInfo(pageRequest);
+
+
+        List<AvailabilityProductImageBase64DTO> productImageBase64List =
+                productImageByte.stream()
+                        .map(product ->{
+                            String imageBase64 = Base64.getEncoder().encodeToString(product.getImage());
+
+                            return new AvailabilityProductImageBase64DTO(
+                                    product.getProductName(),
+                                    product.getPrice(),
+                                    product.getQuantity(),
+                                    product.getDescription(),
+                                    product.getProductInventoryId(),
+                                    product.getProductAvailabilityID(),
+                                    product.getWeight(),
+                                    product.getBurnDuration(),
+                                    imageBase64
+                            );
+                        }).toList();
+
+
+
+        return productImageBase64List;
+    }
+
+
 }
