@@ -9,6 +9,6 @@ import java.util.List;
 public interface IProductAvailabilityService {
 
     InserProductAvailabilitySchema insertProductAvailability(InserProductAvailabilitySchema insertProductAvailability);
-    List<SelectProductAvailabilityAndInventorySchema> retrieveProductAvailability();
+    List<SelectProductAvailabilityAndInventorySchema> retrieveProductAvailability(int page, int size);
 
 }

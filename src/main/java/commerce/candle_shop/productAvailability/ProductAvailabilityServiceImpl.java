@@ -5,6 +5,8 @@ import commerce.candle_shop.productInventory.ProductInventory;
 import generated.InserProductAvailabilitySchema;
 import generated.SelectProductAvailabilityAndInventorySchema;
 import jakarta.persistence.EntityManager;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -49,7 +51,8 @@ public class ProductAvailabilityServiceImpl implements IProductAvailabilityServi
     }
 
     @Override
-    public List<SelectProductAvailabilityAndInventorySchema> retrieveProductAvailability() {
-        return productAvailabilityRepository.finProductAvailabilityInfo();
+    public List<SelectProductAvailabilityAndInventorySchema> retrieveProductAvailability(int page, int size) {
+        PageRequest pageRequest = PageRequest.of(page, size);
+        return productAvailabilityRepository.finProductAvailabilityInfo(pageRequest);
     }
 }

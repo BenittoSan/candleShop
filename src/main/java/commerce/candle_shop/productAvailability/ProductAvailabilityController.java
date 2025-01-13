@@ -44,10 +44,11 @@ public class ProductAvailabilityController {
     }
 
     @GetMapping("/select")
-    public ResponseEntity<List<SelectProductAvailabilityAndInventorySchema>> selectProductAvailability(){
+    public ResponseEntity<List<SelectProductAvailabilityAndInventorySchema>> selectProductAvailability(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size){
 
-        List<SelectProductAvailabilityAndInventorySchema> response = productAvailabilityService.retrieveProductAvailability();
-
+        List<SelectProductAvailabilityAndInventorySchema> response = productAvailabilityService.retrieveProductAvailability(page, size);
         return ResponseEntity.status(HttpStatus.OK).body(response);
 
     }

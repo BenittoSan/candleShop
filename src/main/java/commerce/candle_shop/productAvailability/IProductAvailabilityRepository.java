@@ -1,6 +1,7 @@
 package commerce.candle_shop.productAvailability;
 
 import generated.SelectProductAvailabilityAndInventorySchema;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -23,5 +24,5 @@ public interface IProductAvailabilityRepository extends JpaRepository<ProductAva
             FROM ProductAvailability pa 
             JOIN pa.productInventory pi
             """)
-    List<SelectProductAvailabilityAndInventorySchema> finProductAvailabilityInfo();
+    List<SelectProductAvailabilityAndInventorySchema> finProductAvailabilityInfo(Pageable pageable);
 }

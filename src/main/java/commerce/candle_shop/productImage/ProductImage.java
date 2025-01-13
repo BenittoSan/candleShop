@@ -17,8 +17,9 @@ public class ProductImage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    //private Blob image;
-    //private imageOrder
+
+    @Lob
+    private byte[] image;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "productInventory_id")
