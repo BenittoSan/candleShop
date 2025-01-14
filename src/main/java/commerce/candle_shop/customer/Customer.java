@@ -1,5 +1,6 @@
 package commerce.candle_shop.customer;
 
+import commerce.candle_shop.security.user.User;
 import commerce.candle_shop.address.Address;
 import commerce.candle_shop.purchase.Purchase;
 import commerce.candle_shop.wishList.WishList;
@@ -8,7 +9,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.Email;
@@ -50,4 +50,7 @@ public class Customer {
 
     @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE,mappedBy = "customer")
     private List<Purchase> purchases = new ArrayList<>();
+
+    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
+    private User user;
 }
